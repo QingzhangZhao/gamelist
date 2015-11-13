@@ -1,32 +1,48 @@
+//base types
 
-
+//achievement linearlist
 typedef struct Achievement{
 	struct Achievement *prev;
-	char achievement[20];
+	
+	int  achievement;
+	
 	struct Achievement *next;
 }AchievementNode;
 
+// game content
 typedef struct Game {
-	char GameName[50];
-	char GameIntroduction[100];
-	char CompanyIntroduction[100];
+	//all is int just for sorting easily :P
+	int Gamename;
+	int GameIntroduction;
+	int CompanyIntroduction; 
 	int PlayingHours;
-	struct Achievement *head;
+
+	AchievementNode  *head;
 }GameNode;
 
+//game list 
 typedef struct GameList{
 	struct GameList *prev;
-	struct GameName gamenode;
+	GameNode gamenode;
 	struct GameList *next;
 }GameListNode;
 
 
+//base funciontsa,very simple
 
-void  insert(struct Game,int site);
-void  remove(int site);
+//insert a gamenode by gamename
+//if insert successfully return 1 else 0
+int   my_insert(GameListNode *head, GameNode gamenode);
 
-struct GameNodee query(char *gamename);
+//remove a gamenode by gamename 
+//if remove successfully return 1 else 0
+int   my_remove(GameListNode *head,int ganmename);
 
-enum KeyWord{GameName,GameIntroduction,CompanyIntroduction,PlayingHours,Achievement};
-sortByKeyWord(KeyWord keyWord);
+//return a pointer pointing the gamenode if the game is found
+//else return NULL
+GameNode * my_query(GameListNode *head,int gamename);
+
+//keyWord is in eum{Ganmename,GameIntroduction,CompanyIntroduction,PlayingHours,achievement}
+//return a sorted int[] 
+int * sortByKeyWord(int keyWord);
 
