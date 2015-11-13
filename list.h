@@ -32,11 +32,13 @@ typedef struct GameList{
 
 //insert a gamenode by gamename
 //if insert successfully return 1 else 0
-int   my_insert(GameListNode *head, GameNode gamenode);
+
+int   my_insert(GameListNode **head, GameNode gamenode);
 
 //remove a gamenode by gamename 
 //if remove successfully return 1 else 0
-int   my_remove(GameListNode *head,int ganmename);
+
+int   my_remove(GameListNode **head,int ganmename);
 
 //return a pointer pointing the gamenode if the game is found
 //else return NULL
