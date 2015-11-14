@@ -13,7 +13,7 @@ int main()
 
 	GameNode g2;
 	g2.Gamename=3;
-    g1.GameIntroduction=2;
+    g1.GameIntroduction=4;
 	g1.CompanyIntroduction=2;
 	g1.PlayingHours=20;
 
@@ -21,7 +21,7 @@ int main()
 
 	GameNode g3;
     g3.Gamename=1;
-    g3.GameIntroduction=2;
+    g3.GameIntroduction=23;
 	g3.CompanyIntroduction=2;
 	g3.PlayingHours=20;
 
@@ -59,11 +59,13 @@ int main()
    }
    GameListNode * gn = my_query(head,1);
     if (gn!=NULL)
-   printf("query%d",(gn->gamenode).GameIntroduction);
+   printf("query%d\n",(gn->gamenode).GameIntroduction);
    
-	
-	
-	
+int *test;
+int i;
+ test= sortByKeyWord(head,1);	
+	for (i=0;i<2;i++)
+		printf("%d\n",test[i]);
 	return 0;
 }
 

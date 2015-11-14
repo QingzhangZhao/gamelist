@@ -138,6 +138,7 @@ int * sortByKeyWord(GameListNode *head,int keyWord)
 {
 	int len=1;
 	int i;
+	int count=0;
 	GameListNode *current=head;
 	if(current->next!=NULL)
 	{
@@ -145,27 +146,97 @@ int * sortByKeyWord(GameListNode *head,int keyWord)
 		current=current->next;
 	}
     switch(keyWord){
-
 		//gamename
 		case(0):
 			{
 			int *sort=malloc(sizeof(int)*len);
 			current=head;
 			for (i=0;i<len;i++)
-		    sort[i]=(current->gamenode).Gamename;
-		    mergeSort(sort,0,len);
+			{sort[i]=(current->gamenode).Gamename;
+			current=current->next;
+			}mergeSort(sort,0,len-1);
 			return sort;
 			
 			}
 		//GameIntroduction
 		case(1):
+			{
+				printf("????%d\n",len);
+			int *sort=malloc(sizeof(int)*len);
+			current=head;
+			for (i=0;i<len;i++)
+			{sort[i]=(current->gamenode).GameIntroduction;
+			printf("sort[%d]=%d\n",i,sort[i]);
+				current=current->next;
+			}mergeSort(sort,0,len-1);
+			return sort;
+			
+			}
 
 		//CompanyIntroduction
 		case(2):
-		//PlayingHours
+			{
+			int *sort=malloc(sizeof(int)*len);
+			current=head;
+			for (i=0;i<len;i++)
+			{sort[i]=(current->gamenode).CompanyIntroduction;
+			current=current->next;
+			}mergeSort(sort,0,len-1);
+			return sort;
+			
+			}
+	//PlayingHours
 		case(3):
-		//achievement
+			{
+			int *sort=malloc(sizeof(int)*len);
+			current=head;
+			for (i=0;i<len;i++)
+			{sort[i]=(current->gamenode).PlayingHours;
+			current=current->next;
+			}mergeSort(sort,0,len-1);
+			return sort;
+			
+			}
+//achievement
 		case(4):
+			{
+				AchievementNode *this;
+				current=head;
+				for (i=0;i<len;i++)
+				{
+					if(((current->gamenode).head)!=NULL)
+				     count++;
+					this=(current->gamenode).head;
+
+					while(this->next!=NULL)
+					{
+						count++;
+						this=this->next;
+					}
+					current=current->next;
+				}
+               int *sort=malloc(sizeof(int)*count);
+                 count=0;
+				for (i=0;i<len;i++)
+				{
+					if((current->gamenode).head!=NULL)
+				     sort[count++]=((current->gamenode).head)->achievement;
+					this=(current->gamenode).head;
+
+					while(this->next!=NULL)
+					{
+
+				     sort[count++]=this->achievement;
+						this=this->next;
+					}
+					current=current->next;
+				}
+				mergeSort(sort,0,count-1);
+			    return sort;
+			
+	
+
+			}
 		default:
 			return 0;
 	}

@@ -2,7 +2,6 @@
 void mergeSort(int a[],int left,int right)
 {
 	int i;
-	// 保证至少有两个元素
 	if(left < right)
 	{
 		i = (left+right)/2;
@@ -35,14 +34,6 @@ void merge(int a[],int left,int right)
 	free(b);
 }
 
-/**
- * 复制数组
- * source:源数组
- * dest:目标数组
- * len:源数组长度
- * first:目标数组起始位置
- *
- */
 void copyArray(int source[], int dest[],int len,int first)
 {
 	int i;
