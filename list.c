@@ -1,6 +1,7 @@
 #include"list.h"
 #include<stdio.h>
 #include<stdlib.h>
+#include"mysort.c"
 int my_insert(GameListNode **head,GameNode gamenode)
 { 
 	//find the correct site to insert the gamenode 
@@ -112,10 +113,9 @@ int my_remove(GameListNode **head,int gamename)
 
 
 
-GameNode *my_query(GameListNode *head,int gamename)
+GameListNode *my_query(GameListNode *head,int gamename)
 { 
 	//try to find the gameinfo in the gamelist by gamename
-	
 	GameListNode *current=head;
 	while((current->gamenode).Gamename!=gamename)
 	{
@@ -125,15 +125,47 @@ GameNode *my_query(GameListNode *head,int gamename)
 		if (current==NULL)
 			return 0;
 	}
+
 	//return a pointer 
-	return  &(current->gamenode);
+	return  current;
 
 }
 
 
-
-int * sortByKeyWord(int keyWord)
+//a very simple sortByKeyWord
+//need imporve
+int * sortByKeyWord(GameListNode *head,int keyWord)
 {
+	int len=1;
+	int i;
+	GameListNode *current=head;
+	if(current->next!=NULL)
+	{
+		len++;
+		current=current->next;
+	}
+    switch(keyWord){
+
+		//gamename
+		case(0):
+			int *sort=malloc(sizeof(int)*len);
+			current=head;
+			for (i=0;i<len;i++)
+		    sort[i]=(current->GameNode).gamename;
+			
+
+		//GameIntroduction
+		case(1):
+
+		//CompanyIntroduction
+		case(2):
+		//PlayingHours
+		case(3):
+		//achievement
+		case(4):
+
+	}
+
 
 }
 

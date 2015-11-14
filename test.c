@@ -4,6 +4,7 @@
 //just for a test 
 int main()
 {
+
     GameNode g1;
 	g1.Gamename=2;
 	g1.GameIntroduction=13;
@@ -48,7 +49,7 @@ int main()
 	   current=current->next;
    }
     
-   printf("%d\n",my_remove(&head,1));
+   printf("%d\n",my_remove(&head,3));
 
    current=head;
    while(current!=NULL)
@@ -56,7 +57,13 @@ int main()
 	  printf("%d\n",(current->gamenode).Gamename);
 	   current=current->next;
    }
-    
-   return 0;
+   GameListNode * gn = my_query(head,1);
+    if (gn!=NULL)
+   printf("query%d",(gn->gamenode).GameIntroduction);
+   
+	
+	
+	
+	return 0;
 }
 

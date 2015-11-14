@@ -42,9 +42,9 @@ int   my_remove(GameListNode **head,int ganmename);
 
 //return a pointer pointing the gamenode if the game is found
 //else return NULL
-GameNode * my_query(GameListNode *head,int gamename);
+GameListNode * my_query(GameListNode *head,int gamename);
 
 //keyWord is in eum{Ganmename,GameIntroduction,CompanyIntroduction,PlayingHours,achievement}
 //return a sorted int[] 
-int * sortByKeyWord(int keyWord);
+int  * sortByKeyWord(int keyWord);
 
