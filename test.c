@@ -5,7 +5,7 @@
 int main()
 {
     GameNode g1;
-	g1.Gamename=1;
+	g1.Gamename=2;
 	g1.GameIntroduction=13;
 	g1.CompanyIntroduction=12;
 	g1.PlayingHours=20;
@@ -19,7 +19,7 @@ int main()
 
 
 	GameNode g3;
-    g3.Gamename=4;
+    g3.Gamename=1;
     g3.GameIntroduction=2;
 	g3.CompanyIntroduction=2;
 	g3.PlayingHours=20;

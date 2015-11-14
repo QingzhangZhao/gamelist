@@ -11,16 +11,12 @@ int my_insert(GameListNode **head,GameNode gamenode)
 	GameListNode* new;
 
 
-//need at the bg
-//
-//
-//
-//
-//
-//
-//
-//
-//
+//need at the bg/
+
+
+
+
+
 	while  ((current->gamenode).Gamename<gamenode.Gamename)
 	{   
 		previous =current;
@@ -35,6 +31,16 @@ int my_insert(GameListNode **head,GameNode gamenode)
 			return 1;
 	     }
 
+	}
+	//at the bg
+	if(current->prev==NULL)
+	{
+		new = (GameListNode*)malloc(sizeof(GameListNode));
+		new->gamenode=gamenode;
+		new->next=*head;
+		current->prev=new;
+		*head=new;
+		return 1;
 	}
 
 	//malloc memory for inserting 
@@ -76,7 +82,6 @@ int my_remove(GameListNode **head,int gamename)
 	//if at the beginning 
 	if(current->prev==NULL)
 	{
-		printf("test\n");
 		*head=current->next;
 		(current->next)->prev=NULL;
 
