@@ -148,12 +148,15 @@ int * sortByKeyWord(GameListNode *head,int keyWord)
 
 		//gamename
 		case(0):
+			{
 			int *sort=malloc(sizeof(int)*len);
 			current=head;
 			for (i=0;i<len;i++)
-		    sort[i]=(current->GameNode).gamename;
+		    sort[i]=(current->gamenode).Gamename;
+		    mergeSort(sort,0,len);
+			return sort;
 			
-
+			}
 		//GameIntroduction
 		case(1):
 
@@ -163,7 +166,8 @@ int * sortByKeyWord(GameListNode *head,int keyWord)
 		case(3):
 		//achievement
 		case(4):
-
+		default:
+			return 0;
 	}
 
 

@@ -46,5 +46,5 @@ GameListNode * my_query(GameListNode *head,int gamename);
 
 //keyWord is in eum{Ganmename,GameIntroduction,CompanyIntroduction,PlayingHours,achievement}
 //return a sorted int[] 
-int  * sortByKeyWord(int keyWord);
+int  * sortByKeyWord(GameListNode *head,int keyWord);
 
